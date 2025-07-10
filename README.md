@@ -116,12 +116,12 @@ http://192.168.1.20:8080/manager/html
 ```bash
 mvn clean package
 ```
-1.  Add Post-build Action -> Deploy WAR/EAR to a container
-2.  Fill:
+3.2  Add Post-build Action -> Deploy WAR/EAR to a container
+3.3  Fill:
 -  WAR/EAR files: target/yourapp.war
 -  Container: Tomcat 10.x
 -  Manager URL: http://192.168.1.20:8080/manager/text
-3.  Credentials:
+3.4  Credentials:
 -  Click Add → Jenkins
 -  Username: deployer
 -  Password: deploypass123
