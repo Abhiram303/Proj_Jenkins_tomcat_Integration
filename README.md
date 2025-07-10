@@ -14,14 +14,14 @@
 
 ## Part 1: Jenkins Setup (on Server A)
 
-1.1 Install Java
+1.1  Install Java
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
 java -version
 ```
 
-1.2 Install Jenkins
+1.2  Install Jenkins
 ```bash
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
@@ -31,7 +31,7 @@ sudo apt install jenkins -y
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 ```
-1.3 Unlock Jenkins & Install Plugins
+1.3  Unlock Jenkins & Install Plugins
 
 -  Access Jenkins from browser:
 `http:<server1-ipv4>:8080`
@@ -42,10 +42,9 @@ sudo systemctl start jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Then:
-
-i.  Complete setup
-ii.  Install suggested plugins
-iii.  Create admin user or create a user and its totally optional as you have an option to create user later.
+1.3.1  Complete setup
+1.3.2  Install suggested plugins
+1.3.3  Create admin user or create a user and its totally optional as you have an option to create user later.
 
 1.4  Install “Deploy to container” Plugin
 
