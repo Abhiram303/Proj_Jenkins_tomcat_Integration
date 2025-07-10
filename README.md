@@ -109,19 +109,18 @@ http://192.168.1.20:8080/manager/html
 ## Part 3: Integration (Deploy WAR from Jenkins to Tomcat)
 
 3.1.  Create Jenkins Job
-
 -  Jenkins Dashboard -> New Item -> Freestyle Project
 -  Add Git repo (if using)
 -  In Build, use Maven to generate .war:
 ```bash
 mvn clean package
 ```
-3.2.  Add Post-build Action -> Deploy WAR/EAR to a container
-3.3.  Fill:
+2.  Add Post-build Action -> Deploy WAR/EAR to a container
+3.  Fill:
 -  WAR/EAR files: target/yourapp.war
 -  Container: Tomcat 10.x
 -  Manager URL: http://192.168.1.20:8080/manager/text
-3.4.  Credentials:
+4.  Credentials:
 -  Click Add → Jenkins
 -  Username: deployer
 -  Password: deploypass123
