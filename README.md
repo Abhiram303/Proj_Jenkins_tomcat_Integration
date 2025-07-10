@@ -55,7 +55,7 @@ Then:
 
 ## Part 2: Tomcat Setup (on Server B)
 
-2.1 Install Java
+2.1  Install Java
 
 ```bash
 sudo apt update
@@ -64,7 +64,7 @@ java -version
 ```
 Note: It is highly recommanded to match the java version on both Jenkis & tomcat server.
 
-2.2 Download & Configure Tomcat
+2.2  Download & Configure Tomcat
 ```bash
 cd /opt
 sudo wget https://downloads.apache.org/tomcat/tomcat-10/v10.1.16/bin/apache-tomcat-10.1.16.tar.gz
@@ -83,7 +83,7 @@ Add inside <tomcat-users>:
 <role rolename="manager-script"/>
 <user username="deployer" password="deploypass123" roles="manager-script"/>
 ```
-2.4 Allow Remote Deployment
+2.4  Allow Remote Deployment
 Edit conf/web.xml or use context files in webapps/manager/META-INF/context.xml:
 
 ```bash
@@ -98,7 +98,7 @@ Comment or remove the IP access restriction:
 -->
 ```
 
-2.5 Start Tomcat
+2.5  Start Tomcat
 ```bash
 /opt/tomcat/bin/startup.sh
 ```
