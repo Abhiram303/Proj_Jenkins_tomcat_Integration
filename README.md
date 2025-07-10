@@ -116,9 +116,9 @@ http://192.168.1.20:8080/manager/html
 ```bash
 mvn clean package
 ```
--  Add Post-build Action -> Deploy WAR/EAR to a container
--  Fill:
--    WAR/EAR files: target/yourapp.war
+1.  Add Post-build Action -> Deploy WAR/EAR to a container
+2.  Fill:
+   2.1  WAR/EAR files: target/yourapp.war
 -    Container: Tomcat 10.x
 -    Manager URL: http://192.168.1.20:8080/manager/text
 
