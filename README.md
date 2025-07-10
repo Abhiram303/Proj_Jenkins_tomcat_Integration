@@ -100,8 +100,30 @@ sudo tar -xvzf apache-tomcat-9.0.107.tar.gz
 sudo mv apache-tomcat-9.0.107 tomcat
 sudo chmod +x /opt/tomcat/bin/*.sh
 ```
+2.3  Create a service file in:
+```bash
+cd /usr/lib/systemd/system
+vim tomcat.service
+```
+You need to add the below lines:
+```bash
+[Unit]
+Description=Apache Tomcat 9
+After=network.target
 
-2.3  Configure Tomcat User for Remote Deployment
+[Service]
+Type=oneshot
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+RemainAfterExit=yes
+User=tomcat
+Group=tomcat
+
+[Install]
+WantedBy=multi-user.target
+``
+
+2.4  Configure Tomcat User for Remote Deployment
 ```bash
 sudo nano /opt/tomcat/conf/tomcat-users.xml
 ```
@@ -111,7 +133,7 @@ Add inside <tomcat-users>:
 <role rolename="manager-script"/>
 <user username="deployer" password="deploypass123" roles="manager-script"/>
 ```
-2.4  Allow Remote Deployment
+2.5  Allow Remote Deployment
 Edit conf/web.xml or use context files in webapps/manager/META-INF/context.xml:
 
 ```bash
@@ -126,7 +148,7 @@ Comment or remove the IP access restriction:
 -->
 ```
 
-2.5  Start Tomcat
+2.6  Start Tomcat
 ```bash
 /opt/tomcat/bin/startup.sh
 ```
