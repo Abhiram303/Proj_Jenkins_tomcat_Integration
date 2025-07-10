@@ -118,19 +118,18 @@ mvn clean package
 ```
 1.  Add Post-build Action -> Deploy WAR/EAR to a container
 2.  Fill:
-   2.1  WAR/EAR files: target/yourapp.war
--    Container: Tomcat 10.x
--    Manager URL: http://192.168.1.20:8080/manager/text
-
--  Credentials:
--    Click Add → Jenkins
--    Username: deployer
--    Password: deploypass123
+-  WAR/EAR files: target/yourapp.war
+-  Container: Tomcat 10.x
+-  Manager URL: http://192.168.1.20:8080/manager/text
+3.  Credentials:
+-  Click Add → Jenkins
+-  Username: deployer
+-  Password: deploypass123
 
 ## Part 4: Test the Pipeline
 
--  Click Build Now
--  Observe the console output & track the build status.\
--  Build sucess -> go to tomcat & check:
--    Go to: http://192.168.1.20:8080/yourapp
--    Jenkins pushes .war to Tomcat via remote API
+1.  Click Build Now
+2.  Observe the console output & track the build status.\
+3.  Build sucess -> go to tomcat & check:
+-  Go to: http://192.168.1.20:8080/yourapp
+-  Jenkins pushes .war to Tomcat via remote API
