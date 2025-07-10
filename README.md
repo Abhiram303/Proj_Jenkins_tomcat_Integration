@@ -53,6 +53,35 @@ Then:
 -  `Search and install: Deploy to container Plugin`
 -  Restart Jenkins
 
+## Where Should Maven Be Installed?
+### Maven should be installed on the Jenkins server, not on the Tomcat server.
+**Why?**
+-  Jenkins is responsible for building the application from source code (e.g., compiling, testing, packaging)
+-  Maven is a build tool, not a deployment tool.
+-  Once Jenkins uses Maven to produce a .war file, it then deploys that .war to the remote Tomcat server.
+
+### Jenkins Server (Build + CI/CD)
+Install Maven here:
+```bash
+sudo apt update
+sudo apt install maven -y
+mvn -version
+```
+Jenkins uses Maven to run commands like:
+```bash
+mvn clean package
+```
+Which generates:
+```bash
+target/yourapp.war
+```
+This we will define in detail while setting a job or event build steps.
+
+#### Tomcat Server (Deployment Only)
+-  Tomcat only needs Java (to run)
+-  It receives the .war file from Jenkins over HTTP via the Tomcat Manager API
+-  No Maven required here
+
 ## Part 2: Tomcat Setup (on Server B)
 
 2.1  Install Java
@@ -105,6 +134,15 @@ Comment or remove the IP access restriction:
 Verify:
 http://192.168.1.20:8080/manager/html
 > Login with: deployer / deploypass123
+
+#### Summary
+| Component | Jenkins Server | Tomcat Server |
+| --------- | -------------- | ------------- |
+| Java      | Required       | Required    |
+| Maven     |  Required     |  Not Required   |
+| Tomcat    |  Not Required   |  Required    |
+| Jenkins   |  Required     |  Not Required  |
+
 
 ## Part 3: Integration (Deploy WAR from Jenkins to Tomcat)
 
