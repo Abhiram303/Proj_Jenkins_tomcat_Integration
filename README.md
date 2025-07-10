@@ -119,7 +119,7 @@ mvn clean package
 3.  Fill:
 -  WAR/EAR files: target/yourapp.war
 -  Container: Tomcat 10.x
--  Manager URL: http://192.168.1.20:8080/manager/text
+-  Manager URL: http://Server-B-ip:8080/manager/text
 4.  Credentials:
 -  Click Add → Jenkins
 -  Username: deployer
