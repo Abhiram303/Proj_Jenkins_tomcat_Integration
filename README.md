@@ -90,7 +90,7 @@ sudo apt update
 sudo apt install openjdk-17-jdk -y
 java -version
 ```
-Note: It is highly recommanded to match the java version on both Jenkis & tomcat server.
+Note: It is highly recommanded to match the java version on both Jenkins & tomcat server.
 
 2.2  Download & Configure Tomcat
 ```bash
@@ -153,7 +153,7 @@ Comment or remove the IP access restriction:
 /opt/tomcat/bin/startup.sh
 ```
 Verify:
-http://192.168.1.20:8080/manager/html
+http://tomcatserver-ip:8080
 > Login with: deployer / deploypass123
 
 #### Summary
