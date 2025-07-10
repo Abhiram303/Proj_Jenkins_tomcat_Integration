@@ -121,7 +121,7 @@ Group=tomcat
 
 [Install]
 WantedBy=multi-user.target
-``
+```
 
 2.4  Configure Tomcat User for Remote Deployment
 ```bash
