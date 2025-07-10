@@ -2,8 +2,8 @@
 
 -  We'll install everything from scratch and set up remote deployment from Jenkins to Tomcat using the Tomcat Manager API.
 
-> Server A → Jenkins Server
-> Server B → Tomcat Server
+> **Server A → Jenkins Server**
+> **Server B → Tomcat Server**
 
 ## Prerequisites on Both Servers
 
