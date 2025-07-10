@@ -33,31 +33,26 @@ sudo systemctl start jenkins
 ```
 1.3 Unlock Jenkins & Install Plugins
 
-Access Jenkins from browser:
+-  Access Jenkins from browser:
 `http:<server1-ipv4>:8080`
 
-Get initialAdminPassword:
+-  Get initialAdminPassword:
 
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Then:
 
-Complete setup
+i.  Complete setup
+ii.  Install suggested plugins
+iii.  Create admin user or create a user and its totally optional as you have an option to create user later.
 
-Install suggested plugins
+1.4  Install “Deploy to container” Plugin
 
-Create admin user or create a user and its totally optional as you have an option to create user later.
-
-1.4 Install “Deploy to container” Plugin
-
-Go to: Manage Jenkins → Manage Plugins
-
-Under Available tab:
-
-Search and install: Deploy to container Plugin
-
-Restart Jenkins
+i.  Go to: Manage Jenkins → Manage Plugins
+ii.  Under Available tab:
+       -  Search and install: Deploy to container Plugin
+iii.  Restart Jenkins
 
 ## Part 2: Tomcat Setup (on Server B)
 
@@ -98,6 +93,7 @@ sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
 Comment or remove the IP access restriction:
 
 ```xml<!--
+<!--
 <Valve className="org.apache.catalina.valves.RemoteAddrValve"
        allow="127\.\d+\.\d+\.\d+|::1" />
 -->
