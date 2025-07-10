@@ -130,7 +130,10 @@ sudo nano /opt/tomcat/conf/tomcat-users.xml
 Add inside <tomcat-users>:
 
 ```xml
-<role rolename="manager-script"/>
+<role rolename="manager-gui"/>
+<role rolename="admin-gui"/>
+<user username="manager" password="managerpass123" roles="manager-gui"/>
+<user username="admin" password="adminpass123" roles="admin-gui"/>
 <user username="deployer" password="deploypass123" roles="manager-script"/>
 ```
 2.5  Allow Remote Deployment
@@ -146,6 +149,11 @@ Comment or remove the IP access restriction:
 <Valve className="org.apache.catalina.valves.RemoteAddrValve"
        allow="127\.\d+\.\d+\.\d+|::1" />
 -->
+```
+Restart tomcat:
+```bash
+systemctl restart tomcat.service
+systemctl status tomcat.service
 ```
 
 2.6  Start Tomcat
