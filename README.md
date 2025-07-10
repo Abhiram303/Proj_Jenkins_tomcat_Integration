@@ -42,16 +42,16 @@ sudo systemctl start jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Then:
-1.3.1  Complete setup
-1.3.2  Install suggested plugins
-1.3.3  Create admin user or create a user and its totally optional as you have an option to create user later.
+-  Complete setup
+-  Install suggested plugins
+-  Create admin user or create a user and its totally optional as you have an option to create user later.
 
 1.4  Install “Deploy to container” Plugin
 
-i.  Go to: Manage Jenkins → Manage Plugins
-ii.  Under Available tab:
-       -  Search and install: Deploy to container Plugin
-iii.  Restart Jenkins
+-  Go to: Manage Jenkins → Manage Plugins
+-  Under Available tab:
+-  `Search and install: Deploy to container Plugin`
+-  Restart Jenkins
 
 ## Part 2: Tomcat Setup (on Server B)
 
