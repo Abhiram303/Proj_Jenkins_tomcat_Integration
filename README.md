@@ -95,9 +95,9 @@ Note: It is highly recommanded to match the java version on both Jenkis & tomcat
 2.2  Download & Configure Tomcat
 ```bash
 cd /opt
-sudo wget https://downloads.apache.org/tomcat/tomcat-10/v10.1.16/bin/apache-tomcat-10.1.16.tar.gz
-sudo tar -xvzf apache-tomcat-10.1.16.tar.gz
-sudo mv apache-tomcat-10.1.16 tomcat
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz
+sudo tar -xvzf apache-tomcat-9.0.107.tar.gz
+sudo mv apache-tomcat-9.0.107 tomcat
 sudo chmod +x /opt/tomcat/bin/*.sh
 ```
 
