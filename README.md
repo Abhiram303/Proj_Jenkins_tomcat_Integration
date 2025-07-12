@@ -49,7 +49,7 @@ Then:
 
 -  Go to: Manage Jenkins → Manage Plugins
 -  Under Available tab:
--  `Search and install: Deploy to container Plugin`
+-  `Search and install: Deploy to container Plugin, Publish Over SSH`
 -  Restart Jenkins
 
 ## Where Should Maven Be Installed?
