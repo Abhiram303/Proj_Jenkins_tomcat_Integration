@@ -97,8 +97,33 @@ Note: It is highly recommanded to match the java version on both Jenkins & tomca
 cd /opt
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz
 sudo tar -xvzf apache-tomcat-9.0.107.tar.gz
-sudo mv apache-tomcat-9.0.107 tomcat
+sudo mv apache-tomcat-9.0.107 tomcat9
+```
+Create a user account:
+```bash
+useradd -M -d /opt/tomcat9 tomcat
+```
+Check the ownership over the directory /opt/tomcat9
+```bash
+ls -ld /opt/tomcat9/
+```
+It will be showing like this:
+```bash
+drwxr-xr-x 9 root root 4096 Jul 12 16:10 /opt/tomcat9/
+```
+You need to change the ownership, modify the permissions and check once again :
+```bash
+chown -R tomcat:tomcat /opt/tomcat9/
 sudo chmod +x /opt/tomcat/bin/*.sh
+ls -ld /opt/tomcat9
+```
+Verify user account created with /opt/tomcat9 directory as a home directory
+```bash
+grep tomcat /etc/passwd
+```
+It should show like this:
+```bash
+tomcat:x:1001:1001::/opt/tomcat9:/bin/sh
 ```
 2.3  Create a service file in:
 ```bash
@@ -152,6 +177,7 @@ Comment or remove the IP access restriction:
 ```
 Restart tomcat:
 ```bash
+systemctl daemon-reload
 systemctl restart tomcat.service
 systemctl status tomcat.service
 ```
@@ -162,7 +188,7 @@ systemctl status tomcat.service
 ```
 Verify:
 http://tomcatserver-ip:8080
-> Login with: deployer / deploypass123
+> Login with: manager / managerpass123
 
 #### Summary
 | Component | Jenkins Server | Tomcat Server |
@@ -176,14 +202,33 @@ http://tomcatserver-ip:8080
 ## Part 3: Integration (Deploy WAR from Jenkins to Tomcat)
 
 3.1.  Create Jenkins Job
+-  Before creating the job -> install required plugins: i.Deploy to containers ii.Publish Over SSH
+-  Go to Manage Jenkins -> Systems -> Search for Publish Over SSH & fill the following:
+```bash
+Key : tomact server pvt key text
+-> Add server
+Name : TomcatOverSSH (your choice)
+Hostname: tomcat server ipv4
+Username: ubuntu
+Remote Directory : /home/ubuntu
+-> test configuration -> sucess (expected)
+```
 -  Jenkins Dashboard -> New Item -> Freestyle Project
 -  Add Git repo (if using)
--  In Build, use Maven to generate .war:
+-  In Build, Invoke top-level Maven targets :
 ```bash
-mvn clean package
+clean install
 ```
-2.  Add Post-build Action -> Deploy WAR/EAR to a container
-3.  Fill:
+2.  Add Post-build Action -> Publish Over SSH
+```bash
+Transfers : source files - **/*.war
+remote directory : tomcat
+```
+exec command: 
+```bash
+sudo cp /home/ubuntu/tomcat/*.war /opt/tomcat9/webapps
+```
+4.  Fill:
 -  WAR/EAR files: target/yourapp.war
 -  Container: Tomcat 10.x
 -  Manager URL: http://Server-B-ip:8080/manager/text
