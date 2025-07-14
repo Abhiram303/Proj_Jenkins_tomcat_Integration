@@ -164,16 +164,16 @@ systemctl status sonarqube.service
 ```bash
 tail -f /opt/sonarqube/logs/sonar.log
 ```
-**you should be seeing this message as sucess note of sonarqube**
+**You should be seeing this message as sucess note of sonarqube**
 ```bash
 Process[ce] is up
 SonarQube is operational
 ```
 ### Now connect to sonarqube web UI : 
--  <Server-ip>:9000
--  default login credentails :
+-  Use <Server-ip>:9000
+-  Default login credentails :
 ```bash
 username : admin
 password: admin
 ```
-**-> it will prompt to set new password -> set a secure password & your SonarQube Web UI is all set to use**
+**-> It will prompt to set new password -> set a secure password & your SonarQube Web UI is all set to use**
