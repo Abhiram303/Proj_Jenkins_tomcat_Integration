@@ -5,7 +5,7 @@
 -  sonarqube requires java -> to run
 -  sonarqube supports various databases like PostreSQL, MySQL, Oracle and Microsoft SQL Server etc.
 -  PostreSQL is a common choice.
-Server with below parameters:
--  CPU - 2+Cores
+#### SonarQube required minimum of:
+-  CPU - 2+ Cores
 -  RAM 2+ GB
 -  Disk space: 1+ GB free space
