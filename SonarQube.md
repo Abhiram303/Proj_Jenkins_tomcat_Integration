@@ -135,15 +135,16 @@ vim /etc/sysctl.conf
 vm.max_map_count=262144
 fs.file-max=65536
 ```
+Edit :
 ```bash
 vim /etc/security/limits.conf
 ```
+At the end- add the below:
 ```bash
 sonar - nofile 65536
 sonar - nproc 4096
 ```
-
-To see the applied changes, if applied properly:
+**To see the applied changes, if applied properly:**
 ```bash
 sysctl -p
 ```
