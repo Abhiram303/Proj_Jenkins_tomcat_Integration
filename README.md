@@ -227,19 +227,11 @@ exec command:
 ```bash
 sudo cp /home/ubuntu/tomcat/*.war /opt/tomcat9/webapps
 ```
-4.  Fill:
--  WAR/EAR files: target/yourapp.war
--  Container: Tomcat 10.x
--  Manager URL: http://Server-B-ip:8080/manager/text
-4.  Credentials:
--  Click Add → Jenkins
--  Username: deployer
--  Password: deploypass123
 
 ## Part 4: Test the Pipeline
 
 1.  Click Build Now
 2.  Observe the console output & track the build status.\
 3.  Build sucess -> go to tomcat & check:
--  Go to: http://192.168.1.20:8080/yourapp
+-  Go to: http://tomcatip:8080/manager App
 -  Jenkins pushes .war to Tomcat via remote API
