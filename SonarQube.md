@@ -170,7 +170,7 @@ Process[ce] is up
 SonarQube is operational
 ```
 ### Now connect to sonarqube web UI : 
--  Use <Server-ip>:9000
+-  Use Server-ip:9000
 -  Default login credentails :
 ```bash
 username : admin
