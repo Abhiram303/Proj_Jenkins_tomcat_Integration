@@ -114,7 +114,7 @@ drwxr-xr-x 9 root root 4096 Jul 12 16:10 /opt/tomcat9/
 You need to change the ownership, modify the permissions and check once again :
 ```bash
 chown -R tomcat:tomcat /opt/tomcat9/
-sudo chmod +x /opt/tomcat/bin/*.sh
+sudo chmod +x /opt/tomcat9/bin/*.sh
 ls -ld /opt/tomcat9
 ```
 Verify user account created with /opt/tomcat9 directory as a home directory
@@ -138,8 +138,8 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/opt/tomcat/bin/startup.sh
-ExecStop=/opt/tomcat/bin/shutdown.sh
+ExecStart=/opt/tomcat9/bin/startup.sh
+ExecStop=/opt/tomcat9/bin/shutdown.sh
 RemainAfterExit=yes
 User=tomcat
 Group=tomcat
@@ -150,7 +150,7 @@ WantedBy=multi-user.target
 
 2.4  Configure Tomcat User for Remote Deployment
 ```bash
-sudo nano /opt/tomcat/conf/tomcat-users.xml
+sudo nano /opt/tomcat9/conf/tomcat-users.xml
 ```
 Add inside <tomcat-users>:
 
@@ -162,10 +162,9 @@ Add inside <tomcat-users>:
 <user username="deployer" password="deploypass123" roles="manager-script"/>
 ```
 2.5  Allow Remote Deployment
-Edit conf/web.xml or use context files in webapps/manager/META-INF/context.xml:
-
+-  Edit conf/web.xml or use context files in webapps/manager/META-INF/context.xml:
 ```bash
-sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+sudo nano /opt/tomcat9/webapps/manager/META-INF/context.xml
 ```
 Comment or remove the IP access restriction:
 
