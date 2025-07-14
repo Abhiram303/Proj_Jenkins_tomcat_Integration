@@ -9,3 +9,30 @@
 -  CPU - 2+ Cores
 -  RAM 2+ GB
 -  Disk space: 1+ GB free space
+## How to set-up the SonarQube server?
+let me drive you in detail:
+-  Go to sonarsource.com website (sonarqube is a product of sonar source)
+-  Navigate to docs -> find 'server installation and setup' -> sonarqube server host -> see the requirements
+-  Launch ec2 instance with required configurations.
+### Login to server & Start the installations :
+1.  **Install Java**
+```bash
+apt update 
+apt install openjdk-17-jdk -y
+java -version
+```
+2.  **To store & organize all the data & reports it uses any database**
+```bash
+apt update
+apt install postgresql postgresql-contrib -y 
+systemctl start postgresql 
+systemctl enable postgresql
+```
+3.  **Login as (by default a user is created) postgres user:**
+```bash
+su - postgres
+```
+Run the below command to create a new user called "sonar"
+```bash
+createuser sonar
+```
