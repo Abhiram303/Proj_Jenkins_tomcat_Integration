@@ -32,7 +32,19 @@ systemctl enable postgresql
 ```bash
 su - postgres
 ```
-Run the below command to create a new user called "sonar"
+**Run the below command to create a new user called "sonar"**
 ```bash
 createuser sonar
 ```
+**Switch to sql shell**
+```bash
+psql
+```
+**set the password here**
+```bash
+ALTER USER sonar WITH ENCRYPTED password 'password';
+CREATE DATABASE sonarqube OWNER sonar;
+GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
+```
+-  To exit from postgres SQL use: `\q`
+-  Type `exit` to logout of postgres user
