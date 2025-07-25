@@ -133,16 +133,16 @@ vim tomcat.service
 You need to add the below lines:
 ```bash
 [Unit]
-Description=Apache Tomcat 9
+Description=Tomcat10 server
 After=network.target
 
 [Service]
-Type=oneshot
-ExecStart=/opt/tomcat9/bin/startup.sh
-ExecStop=/opt/tomcat9/bin/shutdown.sh
-RemainAfterExit=yes
+Type=forking
 User=tomcat
 Group=tomcat
+ExecStart=/opt/tomcat10/bin/startup.sh
+ExecStop=/opt/tomcat10/bin/shutdown.sh
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
