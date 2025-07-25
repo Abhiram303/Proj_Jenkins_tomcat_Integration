@@ -165,11 +165,18 @@ sudo nano /opt/tomcat9/conf/tomcat-users.xml
 Add inside /tomcat-users.xml file:
 
 ```xml
-<role rolename="manager-gui"/>
+<role rolename="manager-status" />
+<role rolename="manager-jmx" />
+<role rolename="admin-script" />
+#admin-gui
 <role rolename="admin-gui"/>
-<user username="manager" password="managerpass123" roles="manager-gui"/>
-<user username="admin" password="adminpass123" roles="admin-gui"/>
-<user username="deployer" password="deploypass123" roles="manager-script"/>
+<user username="tomcat" password="qwer1234" roles="admin-gui"/>
+#manager-gui
+<role rolename="manager-gui"/>
+<user username="tomcat" password="qwer1234" roles="manager-gui"/>
+#Server-status
+<role rolename="manager-gui"/>
+<user username="tomcat" password="qwer1234" roles="manager-gui"/>
 ```
 2.5  Allow Remote Deployment
 -  Edit conf/web.xml or use context files in webapps/manager/META-INF/context.xml:
