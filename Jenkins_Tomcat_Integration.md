@@ -152,6 +152,16 @@ WantedBy=multi-user.target
 ```bash
 sudo nano /opt/tomcat9/conf/tomcat-users.xml
 ```
+### Types of roles available in tomcat:
+>  For the Tomcat Manager application:
+-  manager-gui: allows access to the HTML GUI and the status pages
+-  manager-script: allows access to the text interface and the status pages
+-  manager-jmx: allows access to the JMX proxy and the status pages
+-  manager-status: allows access to the status pages only
+>  For the Host Manager application: (GUI is a  Graphical User Interface)
+-  admin-gui: allows access to the HTML GUI and the status pages
+-  admin-script: allows access to the text interface and the status page
+
 Add inside <tomcat-users>:
 
 ```xml
