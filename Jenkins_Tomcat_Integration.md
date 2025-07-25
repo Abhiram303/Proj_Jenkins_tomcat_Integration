@@ -162,7 +162,7 @@ sudo nano /opt/tomcat9/conf/tomcat-users.xml
 -  admin-gui: allows access to the HTML GUI and the status pages
 -  admin-script: allows access to the text interface and the status page
 
-Add inside <tomcat-users>:
+Add inside /tomcat-users.xml file:
 
 ```xml
 <role rolename="manager-gui"/>
