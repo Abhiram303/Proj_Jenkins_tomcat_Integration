@@ -217,7 +217,7 @@ URL: http://<your-server-ip>:9000
 Username: admin
 Password: admin
 ```
-You will be asked to set a new admin password on the first login.
+You will be asked to set a new admin password on the first login or if you already running the sonarqube you have to login with previously set password.
 
 
 
