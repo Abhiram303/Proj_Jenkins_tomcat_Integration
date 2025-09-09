@@ -177,3 +177,47 @@ username : admin
 password: admin
 ```
 **-> It will prompt to set new password -> set a secure password & your SonarQube Web UI is all set to use**
+
+### Important Note : If you ever seen " SonarQube is under maintenance While waiting, install SonarQube for IDE in your IDE! If you are an administrator and have no idea why this message is being shown, you should read the upgrade guide " on login web page !!!
+> **That means - the message "SonarQube is under maintenance" appears when SonarQube starts successfully but finds that the database schema is not yet upgraded or initialized after a fresh install or version change.**
+
+> Here’s what it means and how to fix it:
+
+#### Why You See This Message
+-  After you create a fresh DB (sonarqube), SonarQube needs to set up its initial tables and data.
+-  If the database is empty or incompatible (e.g., from a previous version), SonarQube goes into maintenance mode to run DB migrations
+#### Steps to Fix
+1.  Check SonarQube Logs
+```bash
+sudo tail -f /opt/sonarqube/logs/sonar.log
+```
+2.  Access the SonarQube Web UI
+```bash
+http://<your-server-ip>:9000
+```
+> If prompted for DB migration, click "Migrate" to start it.
+-  Trigger the Database Migration
+-  Click on "Migrate" when the page loads.
+-  SonarQube will create all required tables and initialize data in your sonarqube database.
+3.  Restart SonarQube
+```bash
+sudo systemctl restart sonarqube
+```
+4.  Restart SonarQube
+```bash
+sudo systemctl status sonarqube
+```
+> You should be seeing " active (running) "
+5.  Login to SonarQube
+```bash
+URL: http://<your-server-ip>:9000
+```
+-  Default credentials:
+```bash
+Username: admin
+Password: admin
+```
+You will be asked to set a new admin password on the first login.
+
+
+
